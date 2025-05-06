@@ -42,7 +42,7 @@ namespace DemoLinkedIn.Server.Repositories.Implementations
             await _appDbContext.Posts.AddAsync(post);
             await _appDbContext.SaveChangesAsync();
 
-            return new GeneralResponse<object>(true, "Post created.", StatusCodes.Status201Created);
+            return new GeneralResponse<object>(true, "Post created successfully.", StatusCodes.Status201Created);
         }
 
         public async Task<GeneralResponse<object>> EditPostAsync(int postId, string userId, PostDTO postDto)
@@ -69,7 +69,7 @@ namespace DemoLinkedIn.Server.Repositories.Implementations
             _appDbContext.Posts.Update(post);
             await _appDbContext.SaveChangesAsync();
 
-            return new GeneralResponse<object>(true, "Post updated.");
+            return new GeneralResponse<object>(true, "Post updated successfully.");
         }
 
         public async Task<GeneralResponse<List<PostResponse>>> GetUserPostsAsync(string userId)
@@ -116,7 +116,7 @@ namespace DemoLinkedIn.Server.Repositories.Implementations
                 LikesCount = p.PostLikes.Count
             }).ToList();
 
-            return new GeneralResponse<List<PostResponse>>(false, "Posts retrieved.", Data: postResponses);
+            return new GeneralResponse<List<PostResponse>>(true, "Posts retrieved successfully.", Data: postResponses);
         }
 
         public async Task<GeneralResponse<List<PostResponse>>> GetFeedAllPosts()
@@ -158,7 +158,7 @@ namespace DemoLinkedIn.Server.Repositories.Implementations
                 LikesCount = p.PostLikes.Count
             }).ToList();
 
-            return new GeneralResponse<List<PostResponse>>(true, "Posts retrieved.", Data: postResponses);
+            return new GeneralResponse<List<PostResponse>>(true, "Posts retrieved successfully.", Data: postResponses);
         }
 
         public async Task<GeneralResponse<PostResponse>> GetPostById(int postId)
@@ -256,7 +256,7 @@ namespace DemoLinkedIn.Server.Repositories.Implementations
 
             _appDbContext.Posts.Remove(post);
             await _appDbContext.SaveChangesAsync();
-            return new GeneralResponse<object>(true, "Post deleted.");
+            return new GeneralResponse<object>(true, "Post deleted successfully.");
         }
 
         public async Task<GeneralResponse<object>> LikePostAsync(int postId, string userId)
@@ -282,7 +282,7 @@ namespace DemoLinkedIn.Server.Repositories.Implementations
 
             await _appDbContext.SaveChangesAsync();
 
-            return new GeneralResponse<object>(true, "Liked post.");
+            return new GeneralResponse<object>(true, "Post liked successfully.");
         }
 
         public async Task<GeneralResponse<PostLikesInfoResponse>> GetLikesByPostId(int postId)
@@ -330,7 +330,7 @@ namespace DemoLinkedIn.Server.Repositories.Implementations
             _appDbContext.Comments.Add(addComment);
             await _appDbContext.SaveChangesAsync();
 
-            return new GeneralResponse<object>(true, "Comment created.");
+            return new GeneralResponse<object>(true, "Comment created.", StatusCode: StatusCodes.Status201Created);
         }
 
         public async Task<GeneralResponse<object>> EditCommentAsync(int commentId, CommentDto commentDto, string userId)

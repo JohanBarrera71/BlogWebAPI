@@ -136,8 +136,8 @@ namespace DemoLinkedInApi.Controllers
             Summary = "Get User",
             Description = "Retrieves the user's information.",
             OperationId = "GetUser",
-            Tags = new[] { "Authentication" })]
-        [SwaggerResponse(StatusCodes.Status200OK, "User found!",
+            Tags = new[] { "User Account" })]
+        [SwaggerResponse(StatusCodes.Status200OK, "User found.",
             typeof(GeneralResponse<UserInfoResponse>))]
         [SwaggerResponse(StatusCodes.Status400BadRequest, "Invalid data.")]
         [SwaggerResponse(StatusCodes.Status404NotFound, "User not found or not exist.")]

@@ -96,9 +96,9 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "Demo LinkedIn API",
+        Title = "Blog App API",
         Description =
-            "Esta aplicación backend, desarrollada con C# y ASP.NET Web API, es un clon de LinkedIn que permite a los usuarios autenticarse utilizando JSON Web Tokens (JWT) y ASP.NET Identity. A través de esta autenticación basada en tokens, los usuarios pueden gestionar sus cuentas y acceder a las funcionalidades clave de la plataforma. Este proyecto es desarrollado con fines educativos.",
+            "Esta aplicación backend, desarrollada con C# y ASP.NET Web API, es una plataforma de blogging que permite a los usuarios \nautenticarse utilizando JSON Web Tokens (JWT) y ASP.NET Identity. A través de esta autenticación basada en tokens, los \nusuarios pueden gestionar sus cuentas, crear publicaciones y editar sus perfiles, accediendo a los servicios básicos \npara la administración de contenido y cuentas dentro de la plataforma.",
         Contact = new OpenApiContact
         {
             Email = "johan.dev.71@gmail.com",
@@ -146,7 +146,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseSwagger();
-app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Demo LinkedIn API"); });
+app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Blog App API"); });
 
 app.UseHttpsRedirection();
 
